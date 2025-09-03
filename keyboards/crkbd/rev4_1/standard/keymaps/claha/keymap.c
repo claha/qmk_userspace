@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,    KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,             KC_Y,           KC_U,            KC_I,           KC_O,          KC_P,          KC_BSPC,
       KC_TAB,    SFT_T(KC_A),    CTL_T(KC_S),    GUI_T(KC_D),    ALT_T(KC_F),    KC_G,             KC_H,           ALT_T(KC_J),     GUI_T(KC_K),    CTL_T(KC_L),   SFT_T(KC_NO),  KC_ENT,
       KC_LSFT,   KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,             KC_N,           KC_M,            KC_COMM,        KC_DOT,        KC_SLSH,       KC_NO,
-                                                 KC_NO,          LT(3, KC_TAB),  LT(1, KC_SPC),    LT(2, KC_ENT),  LT(3, KC_BSPC),  KC_NO
+                                                 KC_NO,          LT(3, KC_TAB),  LT(1, KC_SPC),    KC_ENT,         LT(2, KC_BSPC),  KC_NO
   ),
 
     [1] = LAYOUT_split_3x6_3(
@@ -34,10 +34,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
     [2] = LAYOUT_split_3x6_3(
-      KC_TRNS,   KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_MINUS,          KC_NO,        KC_LBRC,          KC_QUOT,        KC_SCLN,       KC_NO,         KC_TRNS,
-      KC_TRNS,   KC_RBRC,        KC_4,           KC_5,           KC_6,           KC_NUBS,           KC_NO,        KC_LALT,          KC_LGUI,        KC_LCTL,       KC_LSFT,       KC_TRNS,
-      KC_TRNS,   KC_DOT,         KC_1,           KC_2,           KC_3,           KC_NUHS,           KC_NO,        KC_RALT,          KC_NO,          KC_NO,         KC_NO,         KC_TRNS,
-                                                 KC_TRNS,        KC_0,           KC_TRNS,           KC_TRNS,      KC_TRNS,          KC_TRNS
+      KC_TRNS,   KC_1,           KC_2,           KC_3,           KC_4,           KC_5,              KC_6,         KC_7,             KC_8,           KC_9,          KC_0,          KC_TRNS,
+      KC_TRNS,   KC_LSFT,        KC_NUHS,        KC_NUBS,        KC_MINUS,       KC_NO,             KC_NO,        KC_LALT,          KC_LGUI,        KC_LCTL,       KC_LSFT,       KC_TRNS,
+      KC_TRNS,   KC_RALT,        KC_DOT,         KC_RBRC,        KC_PLUS,        KC_NO,             KC_NO,        KC_LBRC,          KC_QUOT,        KC_SCLN,       KC_RALT,       KC_TRNS,
+                                                 KC_TRNS,        KC_TRNS,        KC_TRNS,           KC_TRNS,      KC_TRNS,          KC_TRNS
   ),
 
     [3] = LAYOUT_split_3x6_3(
