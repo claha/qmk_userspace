@@ -1,1 +1,3 @@
-CONVERT_TO=liatris
+CONVERT_TO = liatris
+COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
