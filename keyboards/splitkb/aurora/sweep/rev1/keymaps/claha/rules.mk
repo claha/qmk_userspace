@@ -1,4 +1,4 @@
+USER_NAME := claha
 CONVERT_TO = liatris
 COMBO_ENABLE = yes
-CAPS_WORD_ENABLE = yes
 EXTRAFLAGS += -flto=auto
