@@ -16,47 +16,56 @@
 
 #include QMK_KEYBOARD_H
 
-#define HOME_A SFT_T(KC_A)
-#define HOME_S CTL_T(KC_S)
-#define HOME_D GUI_T(KC_D)
-#define HOME_F ALT_T(KC_F)
-#define HOME_J ALT_T(KC_J)
-#define HOME_K GUI_T(KC_K)
-#define HOME_L CTL_T(KC_L)
-#define HOME_SCLN SFT_T(KC_NO)
+#define QHME_L3 SFT_T(KC_A)
+#define QHME_L2 CTL_T(KC_S)
+#define QHME_L1 GUI_T(KC_D)
+#define QHME_L0 ALT_T(KC_F)
+#define QHME_R0 ALT_T(KC_J)
+#define QHME_R1 GUI_T(KC_K)
+#define QHME_R2 CTL_T(KC_L)
+#define QHME_R3 SFT_T(KC_NO)
 
-#define THUMB_TAB LT(4, KC_TAB)
-#define THUMB_SPC LT(2, KC_SPC)
-#define THUMB_ENT KC_ENT
-#define THUMB_BSPC LT(3, KC_BSPC)
+#define CHME_L3 SFT_T(KC_A)
+#define CHME_L2 CTL_T(KC_R)
+#define CHME_L1 GUI_T(KC_S)
+#define CHME_L0 ALT_T(KC_T)
+#define CHME_R0 ALT_T(KC_N)
+#define CHME_R1 GUI_T(KC_E)
+#define CHME_R2 CTL_T(KC_I)
+#define CHME_R3 SFT_T(KC_O)
+
+#define THMB_L1 LT(4, KC_TAB)
+#define THMB_L0 LT(2, KC_SPC)
+#define THMB_R0 KC_ENT
+#define THMB_R1 LT(3, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [0] = LAYOUT_planck_mit(
-    KC_ESC,   KC_Q,     KC_W,     KC_E,        KC_R,        KC_T,    KC_Y,  KC_U,       KC_I,        KC_O,     KC_P,      KC_BSPC,
-    KC_TAB,   HOME_A,   HOME_S,   HOME_D,      HOME_F,      KC_G,    KC_H,  HOME_J,     HOME_K,      HOME_L,   HOME_SCLN, KC_ENT,
-    KC_LSFT,  KC_Z,     KC_X,     KC_C,        KC_V,        KC_B,    KC_N,  KC_M,       KC_COMM,     KC_DOT,   KC_SLSH,   KC_LSFT,
-    KC_LCTL,  KC_LGUI,  KC_LALT,  THUMB_TAB,   THUMB_SPC,   KC_NO,          THUMB_ENT,  THUMB_BSPC,  _______,  _______,   _______
+    KC_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
+    KC_TAB,   QHME_L3,  QHME_L2,  QHME_L1,  QHME_L0,  KC_G,     KC_H,     QHME_R0,  QHME_R1,  QHME_R2,  QHME_R3,  KC_ENT,
+    XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  THMB_L1,  THMB_L0,            THMB_R0,  THMB_R1,  XXXXXXX,  XXXXXXX,  XXXXXXX
 ),
 
 [1] = LAYOUT_planck_mit(
-    KC_ESC,   KC_Q,     KC_W,         KC_F,         KC_P,           KC_B,  KC_J,  KC_L,         KC_U,            KC_Y,         KC_NO,        KC_BSPC,
-    KC_TAB,   HOME_A,   CTL_T(KC_R),  GUI_T(KC_S),  ALT_T(KC_T),    KC_G,  KC_M,  ALT_T(KC_N),  GUI_T(KC_E),     CTL_T(KC_I),  SFT_T(KC_O),  KC_ENT,
-    KC_LSFT,  KC_Z,     KC_X,         KC_C,         KC_D,           KC_V,  KC_K,  KC_H,         KC_COMM,         KC_DOT,       KC_SLSH,      KC_LSFT,
-    KC_LCTL,  KC_LGUI,  KC_LALT,      THUMB_TAB,    THUMB_SPC,      KC_NO,        THUMB_ENT,    THUMB_BSPC,      _______,      _______,      _______
+    KC_ESC,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     XXXXXXX,  KC_BSPC,
+    KC_TAB,   CHME_L3,  CHME_L2,  CHME_L1,  CHME_L0,  KC_G,     KC_M,     CHME_R0,  CHME_R1,  CHME_R2,  CHME_R3,  KC_ENT,
+    XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_K,     KC_H,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  THMB_L1,  THMB_L0,            THMB_R0,  THMB_R1,  XXXXXXX,  XXXXXXX,  XXXXXXX
 ),
 
 [2] = LAYOUT_planck_mit(
-    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,       KC_NO,       KC_NO,    KC_NO,    _______,
-    _______,  KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  KC_NO,    KC_LEFT,  KC_DOWN,     KC_UP,       KC_RIGHT, KC_NO,    _______,
-    _______,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,     KC_PGUP,     KC_END,   KC_NO,    _______,
-    _______,  _______,  _______,  _______,  _______,  _______,            _______,     _______,     _______,  _______,  _______
+    _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  _______,
+    _______,  KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  XXXXXXX,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  XXXXXXX,  _______,
+    _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   XXXXXXX,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______
 ),
 
 [3] = LAYOUT_planck_mit(
     _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,
-    _______,  KC_LSFT,  KC_NUHS,  KC_NUBS,  KC_MINUS, KC_NO,    KC_NO,    KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,  _______,
-    _______,  KC_RALT,  KC_DOT,   KC_RBRC,  KC_PLUS,  KC_NO,    KC_NO,    KC_LBRC,  KC_QUOT,  KC_SCLN,  KC_RALT,  _______,
+    _______,  KC_LSFT,  KC_NUHS,  KC_NUBS,  KC_MINS,  XXXXXXX,  XXXXXXX,  KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,  _______,
+    _______,  KC_RALT,  KC_DOT,   KC_RBRC,  KC_PLUS,  XXXXXXX,  XXXXXXX,  KC_LBRC,  KC_QUOT,  KC_SCLN,  KC_RALT,  _______,
     _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______   
 ),
 
