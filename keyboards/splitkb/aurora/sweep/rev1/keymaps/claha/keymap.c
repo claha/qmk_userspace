@@ -15,6 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "keymap_swedish.h"
 #include "gpio.h"
 
 #define HOME_A SFT_T(KC_A)
@@ -28,7 +29,7 @@
 
 #define THUMB_L1 LT(4, KC_TAB)
 #define THUMB_L0 LT(2, KC_SPC)
-#define THUMB_R0 KC_ENT
+#define THUMB_R0 LT(5, KC_ENT)
 #define THUMB_R1 LT(3, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -62,12 +63,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [4] = LAYOUT(
+    KC_NO,    KC_NO,    SE_LABK,  SE_RABK,  SE_PIPE,  KC_NO,    SE_LCBR,  SE_RCBR,  KC_NO,    KC_NO,
+    SE_TILD,  SE_ASTR,  SE_LBRC,  SE_RBRC,  KC_NO,    SE_QUOT,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    SE_COMM,  SE_DOT,   SE_MINS,
+                                  KC_NO,    KC_NO,    KC_TRNS,  KC_NO
+),
+
+[5] = LAYOUT(
     QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    DF(0),    DF(1),    KC_NO,    KC_NO,
     RM_TOGG,  RM_HUEU,  RM_SATU,  RM_VALU,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     RM_NEXT,  RM_HUED,  RM_SATD,  RM_VALD,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
                                   KC_TRNS,  KC_NO,    KC_NO,    KC_NO
 )
-
 };
 
 void keyboard_pre_init_user(void) {
@@ -79,3 +86,17 @@ const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case SE_TILD:
+    if (record->event.pressed) {
+      register_code(KC_RALT);
+      tap_code(KC_RBRC);
+      unregister_code(KC_RALT);
+      tap_code(KC_SPC);
+    }
+    return false;
+  }
+  return true;
+}
