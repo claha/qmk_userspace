@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_split_3x6_3(
-    XXXXXXX,  KC_NO,    KC_NO,    SE_LABK,  SE_RABK,  SE_PIPE,  KC_NO,    SE_LCBR,  SE_RCBR,  KC_NO,    KC_NO,    XXXXXXX,
+    XXXXXXX,  SE_CIRC,  KC_NO,    SE_LABK,  SE_RABK,  SE_PIPE,  KC_NO,    SE_LCBR,  SE_RCBR,  KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  SE_TILD,  SE_ASTR,  SE_LBRC,  SE_RBRC,  KC_NO,    SE_QUOT,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,  XXXXXXX,
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    SE_COMM,  SE_DOT,   SE_MINS,  XXXXXXX,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
@@ -82,11 +82,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SE_TILD:
     if (record->event.pressed) {
       register_code(KC_RALT);
-      tap_code(KC_RBRC);
+      tap_code(SE_DIAE);
       unregister_code(KC_RALT);
       tap_code(KC_SPC);
     }
-            return false;
+    return false;
+  case SE_CIRC:
+    if (record->event.pressed) {
+      register_code(KC_LSFT);
+      tap_code(SE_DIAE);
+      unregister_code(KC_LSFT);
+      tap_code(KC_SPC);
+    }
+    return false;
   }
   return true;
 }
