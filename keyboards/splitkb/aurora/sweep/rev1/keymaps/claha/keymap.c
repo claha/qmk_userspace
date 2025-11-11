@@ -57,15 +57,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [3] = LAYOUT(
     KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,
-    KC_LSFT,  KC_NUHS,  KC_NUBS,  KC_MINUS, KC_NO,    KC_NO,    KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,
+    KC_LSFT,  KC_NUHS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,
     KC_RALT,  KC_DOT,   KC_RBRC,  KC_PLUS,  KC_NO,    KC_NO,    KC_LBRC,  KC_QUOT,  KC_SCLN,  KC_RALT,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
 ),
 
 [4] = LAYOUT(
-    KC_NO,    KC_NO,    SE_LABK,  SE_RABK,  SE_PIPE,  KC_NO,    SE_LCBR,  SE_RCBR,  KC_NO,    KC_NO,
-    SE_TILD,  SE_ASTR,  SE_LBRC,  SE_RBRC,  KC_NO,    SE_QUOT,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    SE_COMM,  SE_DOT,   SE_MINS,
+    SE_BSLS,  SE_LABK,  SE_RABK,  SE_MINS,  SE_PIPE,  SE_CIRC,  SE_LCBR,  SE_RCBR,  SE_DLR,   SE_QUES,
+    SE_EXLM,  SE_ASTR,  SE_SLSH,  SE_EQL,   SE_AMPR,  SE_HASH,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,
+    SE_TILD,  SE_PLUS,  SE_LBRC,  SE_RBRC,  SE_PERC,  SE_AT,    SE_COLN,  SE_COMM,  SE_DOT,   SE_QUOT,
                                   KC_NO,    KC_NO,    KC_TRNS,  KC_NO
 ),
 
@@ -94,6 +94,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       register_code(KC_RALT);
       tap_code(KC_RBRC);
       unregister_code(KC_RALT);
+      tap_code(KC_SPC);
+    }
+    return false;
+  case SE_CIRC:
+    if (record->event.pressed) {
+      register_code(KC_LSFT);
+      tap_code(SE_DIAE);
+      unregister_code(KC_LSFT);
       tap_code(KC_SPC);
     }
     return false;
