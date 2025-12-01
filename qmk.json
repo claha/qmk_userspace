@@ -3,6 +3,7 @@
     "build_targets": [
         ["splitkb/aurora/sweep/rev1", "claha"],
         ["crkbd/rev4_1/standard", "claha"],
-        ["kprepublic/cstc40/rev3", "claha"]
+        ["kprepublic/cstc40/rev3", "claha"],
+        ["silakka54", "claha"]
     ]
 }
