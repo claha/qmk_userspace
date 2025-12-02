@@ -28,12 +28,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HOME_L CTL_T(KC_L)
 #define HOME_SCLN SFT_T(KC_NO)
 
-#define THUMB_L2 KC_NO
+#define THUMB_L2 KC_ESC
 #define THUMB_L1 LT(3, KC_TAB)
 #define THUMB_L0 LT(1, KC_SPC)
 #define THUMB_R0 LT(4, KC_ENT)
 #define THUMB_R1 LT(2, KC_BSPC)
-#define THUMB_R2 KC_NO
+#define THUMB_R2 KC_DEL
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_split_3x6_3(
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_NO,    XXXXXXX,
-    XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_NO,    XXXXXXX,
+    XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_DEL,   XXXXXXX,
                                   KC_TRNS,  KC_ESC,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
