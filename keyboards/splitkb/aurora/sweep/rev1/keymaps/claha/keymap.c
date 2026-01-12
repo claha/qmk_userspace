@@ -70,6 +70,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [5] = LAYOUT(
+    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F11,   KC_F12,   KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+                                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+),
+
+[6] = LAYOUT(
     QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    DF(0),    DF(1),    KC_NO,    KC_NO,
     RM_TOGG,  RM_HUEU,  RM_SATU,  RM_VALU,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     RM_NEXT,  RM_HUED,  RM_SATD,  RM_VALD,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
@@ -83,8 +90,10 @@ void keyboard_pre_init_user(void) {
 }
 
 const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
+  COMBO(combo_syslayer, MO(6)),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
