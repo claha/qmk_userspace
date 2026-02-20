@@ -3,6 +3,7 @@
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h"
+#include "claha.h"
 
 #define HOME_A SFT_T(KC_A)
 #define HOME_S CTL_T(KC_S)
@@ -14,15 +15,15 @@
 #define HOME_SCLN SFT_T(KC_NO)
 
 #define THUMB_L2 KC_ESC
-#define THUMB_L1 LT(3, KC_TAB)
-#define THUMB_L0 LT(1, KC_SPC)
-#define THUMB_R0 LT(4, KC_ENT)
-#define THUMB_R1 LT(2, KC_BSPC)
+#define THUMB_L1 LT(SYM, KC_TAB)
+#define THUMB_L0 LT(NAV, KC_SPC)
+#define THUMB_R0 LT(SYS, KC_ENT)
+#define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [0] = LAYOUT(
+  [BASE] = LAYOUT(
     XXXXXXX,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     XXXXXXX,
     XXXXXXX,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     XXXXXXX,
     XXXXXXX,  HOME_A,   HOME_S,   HOME_D,   HOME_F,   KC_G,     KC_H,     HOME_J,   HOME_K,   HOME_L,   HOME_SCLN,XXXXXXX,
@@ -30,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   THUMB_L2, THUMB_L1, THUMB_L0, THUMB_R0, THUMB_R1, THUMB_R2
   ),
 
-  [1] = LAYOUT(
+  [NAV] = LAYOUT(
     XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_NO,    XXXXXXX,
@@ -38,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS,  KC_ESC,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [2] = LAYOUT(
+  [NUM] = LAYOUT(
     XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,
     XXXXXXX,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     XXXXXXX,
     XXXXXXX,  KC_LSFT,  KC_NUHS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,  XXXXXXX,
@@ -46,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [3] = LAYOUT(
+  [SYM] = LAYOUT(
     XXXXXXX,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  XXXXXXX,
     XXXXXXX,  SE_BSLS,  SE_LABK,  SE_RABK,  SE_MINS,  SE_PIPE,  SE_CIRC,  SE_LCBR,  SE_RCBR,  SE_DLR,   SE_QUES,  XXXXXXX,
     XXXXXXX,  SE_EXLM,  SE_ASTR,  SE_SLSH,  SE_EQL,   SE_AMPR,  SE_HASH,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,  XXXXXXX,
@@ -54,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [4] = LAYOUT(
+  [SYS] = LAYOUT(
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  RM_TOGG,  RM_HUEU,  RM_SATU,  RM_VALU,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
