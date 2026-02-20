@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h"
+#include "claha.h"
 
 #define HOME_A SFT_T(KC_A)
 #define HOME_S CTL_T(KC_S)
@@ -29,49 +30,49 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HOME_SCLN SFT_T(KC_NO)
 
 #define THUMB_L2 KC_ESC
-#define THUMB_L1 LT(3, KC_TAB)
-#define THUMB_L0 LT(1, KC_SPC)
-#define THUMB_R0 LT(4, KC_ENT)
-#define THUMB_R1 LT(2, KC_BSPC)
+#define THUMB_L1 LT(SYM, KC_TAB)
+#define THUMB_L0 LT(NAV, KC_SPC)
+#define THUMB_R0 LT(FUN, KC_ENT)
+#define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(
+  [BASE] = LAYOUT_split_3x6_3(
     XXXXXXX,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     XXXXXXX,
     XXXXXXX,  HOME_A,   HOME_S,   HOME_D,   HOME_F,   KC_G,     KC_H,     HOME_J,   HOME_K,   HOME_L,   HOME_SCLN,XXXXXXX,
     XXXXXXX,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
                                   THUMB_L2, THUMB_L1, THUMB_L0, THUMB_R0, THUMB_R1, THUMB_R2
   ),
 
-  [1] = LAYOUT_split_3x6_3(
+  [NAV] = LAYOUT_split_3x6_3(
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_NO,    XXXXXXX,
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_DEL,   XXXXXXX,
                                   KC_TRNS,  KC_ESC,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [2] = LAYOUT_split_3x6_3(
+  [NUM] = LAYOUT_split_3x6_3(
     XXXXXXX,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     XXXXXXX,
     XXXXXXX,  KC_LSFT,  KC_NUHS,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_LALT,  KC_LGUI,  KC_LCTL,  KC_LSFT,  XXXXXXX,
     XXXXXXX,  KC_RALT,  KC_DOT,   KC_RBRC,  KC_PLUS,  KC_NO,    KC_NO,    KC_LBRC,  KC_QUOT,  KC_SCLN,  KC_RALT,  XXXXXXX,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [3] = LAYOUT_split_3x6_3(
+  [SYM] = LAYOUT_split_3x6_3(
     XXXXXXX,  SE_BSLS,  SE_LABK,  SE_RABK,  SE_MINS,  SE_PIPE,  SE_CIRC,  SE_LCBR,  SE_RCBR,  SE_DLR,   SE_QUES,  XXXXXXX,
     XXXXXXX,  SE_EXLM,  SE_ASTR,  SE_SLSH,  SE_EQL,   SE_AMPR,  SE_HASH,  SE_LPRN,  SE_RPRN,  SE_SCLN,  SE_DQUO,  XXXXXXX,
     XXXXXXX,  SE_TILD,  SE_PLUS,  SE_LBRC,  SE_RBRC,  SE_PERC,  SE_AT,    SE_COLN,  SE_COMM,  SE_DOT,   SE_QUOT,  XXXXXXX,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [4] = LAYOUT_split_3x6_3(
+  [FUN] = LAYOUT_split_3x6_3(
     XXXXXXX,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   XXXXXXX,
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F11,   KC_F12,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  KC_NO,    KC_N,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
-  [5] = LAYOUT_split_3x6_3(
+  [SYS] = LAYOUT_split_3x6_3(
     XXXXXXX,  QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  RM_TOGG,  RM_HUEU,  RM_SATU,  RM_VALU,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  RM_NEXT,  RM_HUED,  RM_SATD,  RM_VALD,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
@@ -83,7 +84,7 @@ const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
 const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
-  COMBO(combo_syslayer, MO(5)),
+  COMBO(combo_syslayer, MO(SYS)),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
