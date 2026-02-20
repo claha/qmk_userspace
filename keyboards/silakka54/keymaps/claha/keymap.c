@@ -17,7 +17,7 @@
 #define THUMB_L2 KC_ESC
 #define THUMB_L1 LT(SYM, KC_TAB)
 #define THUMB_L0 LT(NAV, KC_SPC)
-#define THUMB_R0 LT(SYS, KC_ENT)
+#define THUMB_R0 LT(FUN, KC_ENT)
 #define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
 
@@ -55,6 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
   ),
 
+  [FUN] = LAYOUT(
+    XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
+    XXXXXXX,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   XXXXXXX,
+    XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_F11,   KC_F12,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
+    XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
+                                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS
+  ),
+
   [SYS] = LAYOUT(
     XXXXXXX,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
     XXXXXXX,  QK_BOOT,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    XXXXXXX,
@@ -65,8 +73,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
+  COMBO(combo_syslayer, MO(SYS)),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
