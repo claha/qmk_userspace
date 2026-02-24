@@ -27,10 +27,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [NAV] = LAYOUT_split_3x5_3(
-    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+    KC_ESC,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
     KC_LSFT,  KC_LCTL,  KC_LGUI,  KC_LALT,  KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT, KC_NO,
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_DEL,
-                        KC_ESC,   KC_TRNS,  XXXXXXX,  XXXXXXX,  KC_TRNS,  KC_TRNS
+                        KC_TRNS,  KC_TRNS,  XXXXXXX,  XXXXXXX,  KC_TRNS,  KC_TRNS
 ),
 
 [NUM] = LAYOUT_split_3x5_3(
