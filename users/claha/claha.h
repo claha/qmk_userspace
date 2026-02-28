@@ -24,3 +24,6 @@ enum layer_names {
 #define THUMB_R0 LT(FUN, KC_ENT)
 #define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
+
+static const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
+static const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
