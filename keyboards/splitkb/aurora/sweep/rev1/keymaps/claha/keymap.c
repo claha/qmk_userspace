@@ -69,8 +69,6 @@ void keyboard_pre_init_user(void) {
     gpio_write_pin_high(24);
 }
 
-const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
-const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
   COMBO(combo_syslayer, MO(SYS)),

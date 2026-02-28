@@ -64,8 +64,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
-const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
 combo_t key_combos[] = {
   COMBO(combo_capsword, CW_TOGG),
   COMBO(combo_syslayer, MO(SYS)),
