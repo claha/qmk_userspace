@@ -33,5 +33,4 @@
 #    define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 #endif
 
-#undef TAPPING_TERM
-#define TAPPING_TERM 250
+
