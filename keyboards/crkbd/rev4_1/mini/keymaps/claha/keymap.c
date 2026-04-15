@@ -20,10 +20,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap_swedish.h"
 #include "claha.h"
 
+enum custom_keycodes {
+    EX_L0 = SAFE_RANGE,
+    EX_L1,
+    EX_R0,
+    EX_R1,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_split_3x5_3_ex2(
-    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_NO,    KC_NO,    KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-    HOME_A,   HOME_S,   HOME_D,   HOME_F,   KC_G,     KC_NO,    KC_NO,    KC_H,     HOME_J,   HOME_K,   HOME_L,   HOME_SCLN,
+    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     EX_L0,    EX_R0,    KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
+    HOME_A,   HOME_S,   HOME_D,   HOME_F,   KC_G,     EX_L1,    EX_R1,    KC_H,     HOME_J,   HOME_K,   HOME_L,   HOME_SCLN,
     KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,
                                   THUMB_L2, THUMB_L1, THUMB_L0, THUMB_R0, THUMB_R1, THUMB_R2
   ),
@@ -70,23 +77,37 @@ combo_t key_combos[] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!record->event.pressed) {
+    return true;
+  }
+
   switch (keycode) {
-  case SE_TILD:
-    if (record->event.pressed) {
+    case EX_L0:
+      SEND_STRING("git status" SS_TAP(X_ENTER));
+      return false;
+    case EX_L1:
+      SEND_STRING("cd .." SS_TAP(X_ENTER));
+      return false;
+    case EX_R0:
+      SEND_STRING("git diff" SS_TAP(X_ENTER));
+      return false;
+    case EX_R1:
+      SEND_STRING("ls ");
+      tap_code(SE_MINS);
+      SEND_STRING("la" SS_TAP(X_ENTER));
+      return false;
+    case SE_TILD:
       register_code(KC_RALT);
       tap_code(SE_DIAE);
       unregister_code(KC_RALT);
       tap_code(KC_SPC);
-    }
-    return false;
-  case SE_CIRC:
-    if (record->event.pressed) {
+      return false;
+    case SE_CIRC:
       register_code(KC_LSFT);
       tap_code(SE_DIAE);
       unregister_code(KC_LSFT);
       tap_code(KC_SPC);
-    }
-    return false;
+      return false;
   }
   return true;
 }
