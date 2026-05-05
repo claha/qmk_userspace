@@ -72,8 +72,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 combo_t key_combos[] = {
-  COMBO(combo_capsword, CW_TOGG),
-  COMBO(combo_syslayer, MO(SYS)),
+  [COMBO_CAPSWORD] = COMBO(combo_capsword, CW_TOGG),
+  [COMBO_SYSLAYER] = COMBO(combo_syslayer, MO(SYS)),
+  [COMBO_REPEAT_LEFT] = COMBO(combo_repeat_left, QK_REP),
+  [COMBO_REPEAT_RIGHT] = COMBO(combo_repeat_right, QK_REP),
+  [COMBO_ALT_REPEAT_LEFT] = COMBO(combo_alt_repeat_left, QK_AREP),
+  [COMBO_ALT_REPEAT_RIGHT] = COMBO(combo_alt_repeat_right, QK_AREP),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
