@@ -28,5 +28,18 @@ enum layer_names {
 #define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
 
+enum combos {
+    COMBO_CAPSWORD,
+    COMBO_SYSLAYER,
+    COMBO_REPEAT_LEFT,
+    COMBO_REPEAT_RIGHT,
+    COMBO_ALT_REPEAT_LEFT,
+    COMBO_ALT_REPEAT_RIGHT,
+};
+
 static const uint16_t PROGMEM combo_capsword[] = {KC_B, KC_N, COMBO_END};
 static const uint16_t PROGMEM combo_syslayer[] = {THUMB_R0, THUMB_R1, COMBO_END};
+static const uint16_t PROGMEM combo_repeat_left[] = {KC_W, KC_E, COMBO_END};
+static const uint16_t PROGMEM combo_repeat_right[] = {KC_I, KC_O, COMBO_END};
+static const uint16_t PROGMEM combo_alt_repeat_left[] = {KC_X, KC_C, COMBO_END};
+static const uint16_t PROGMEM combo_alt_repeat_right[] = {KC_COMM, KC_DOT, COMBO_END};
