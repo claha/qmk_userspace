@@ -28,6 +28,8 @@ enum layer_names {
 #define THUMB_R1 LT(NUM, KC_BSPC)
 #define THUMB_R2 KC_DEL
 
+bool claha_handle_dead_keys(uint16_t keycode, keyrecord_t *record);
+
 enum combos {
     COMBO_CAPSWORD,
     COMBO_SYSLAYER,

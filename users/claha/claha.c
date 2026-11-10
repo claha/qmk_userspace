@@ -24,6 +24,28 @@ bool caps_word_press_user(uint16_t keycode) {
   }
 }
 
+bool claha_handle_dead_keys(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case SE_TILD:
+    if (record->event.pressed) {
+      register_code(KC_RALT);
+      tap_code(KC_RBRC);
+      unregister_code(KC_RALT);
+      tap_code(KC_SPC);
+    }
+    return true;
+  case SE_CIRC:
+    if (record->event.pressed) {
+      register_code(KC_LSFT);
+      tap_code(SE_DIAE);
+      unregister_code(KC_LSFT);
+      tap_code(KC_SPC);
+    }
+    return true;
+  }
+  return false;
+}
+
 uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
         case SE_LPRN: return SE_RPRN;  // ( -> )

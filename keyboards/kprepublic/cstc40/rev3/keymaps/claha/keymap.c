@@ -57,22 +57,7 @@ combo_t key_combos[] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case SE_TILD:
-    if (record->event.pressed) {
-      register_code(KC_RALT);
-      tap_code(SE_DIAE);
-      unregister_code(KC_RALT);
-      tap_code(KC_SPC);
-    }
-    return false;
-  case SE_CIRC:
-    if (record->event.pressed) {
-      register_code(KC_LSFT);
-      tap_code(SE_DIAE);
-      unregister_code(KC_LSFT);
-      tap_code(KC_SPC);
-    }
+  if (claha_handle_dead_keys(keycode, record)) {
     return false;
   }
   return true;

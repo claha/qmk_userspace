@@ -81,6 +81,10 @@ combo_t key_combos[] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (claha_handle_dead_keys(keycode, record)) {
+    return false;
+  }
+
   if (!record->event.pressed) {
     return true;
   }
@@ -99,18 +103,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING("ls ");
       tap_code(SE_MINS);
       SEND_STRING("la" SS_TAP(X_ENTER));
-      return false;
-    case SE_TILD:
-      register_code(KC_RALT);
-      tap_code(SE_DIAE);
-      unregister_code(KC_RALT);
-      tap_code(KC_SPC);
-      return false;
-    case SE_CIRC:
-      register_code(KC_LSFT);
-      tap_code(SE_DIAE);
-      unregister_code(KC_LSFT);
-      tap_code(KC_SPC);
       return false;
   }
   return true;
